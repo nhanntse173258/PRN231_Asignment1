@@ -1,0 +1,72 @@
+﻿@page
+@model jewelryRazorPage.Pages.JewelryPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+    <a asp-Page ="Search">Search Jewelry</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].SilverJewelryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].SilverJewelryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].MetalWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].ProductionYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SilverJewelry[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SilverJewelry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SilverJewelryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SilverJewelryDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetalWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SilverJewelryId">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SilverJewelryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

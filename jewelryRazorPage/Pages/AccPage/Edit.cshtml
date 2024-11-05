@@ -1,0 +1,50 @@
+﻿@page
+@model jewelryRazorPage.Pages.AccPage.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BranchAccount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BranchAccount.AccountId" />
+            <div class="form-group">
+                <label asp-for="BranchAccount.AccountPassword" class="control-label"></label>
+                <input asp-for="BranchAccount.AccountPassword" class="form-control" />
+                <span asp-validation-for="BranchAccount.AccountPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchAccount.FullName" class="control-label"></label>
+                <input asp-for="BranchAccount.FullName" class="form-control" />
+                <span asp-validation-for="BranchAccount.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchAccount.EmailAddress" class="control-label"></label>
+                <input asp-for="BranchAccount.EmailAddress" class="form-control" />
+                <span asp-validation-for="BranchAccount.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchAccount.Role" class="control-label"></label>
+                <input asp-for="BranchAccount.Role" class="form-control" />
+                <span asp-validation-for="BranchAccount.Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

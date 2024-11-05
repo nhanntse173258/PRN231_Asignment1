@@ -1,0 +1,42 @@
+﻿@page
+@model jewelryRazorPage.Pages.JewelryPage.SearchModel
+
+<h2>Search Silver Jewelry</h2>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post" asp-page-handler="Search">
+    <input type="text" asp-for="SearchTerm" placeholder="Enter jewelry name or weight" required />
+    <button type="submit">Search</button>
+</form>
+
+@if (Model.JewelryList != null && Model.JewelryList.Count > 0)
+{
+    <h3>Search Results:</h3>
+    <ul>
+        @foreach (var jewelry in Model.JewelryList)
+        {
+            <li>
+                @jewelry.SilverJewelryName - @jewelry.MetalWeight
+            </li>
+        }
+    </ul>
+}
+else if (Model.JewelryList != null)
+{
+    <p>No jewelry found.</p>
+}
